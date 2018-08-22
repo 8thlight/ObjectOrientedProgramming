@@ -9,10 +9,10 @@ OBJ_FILES = $(patsubst %.cpp,%.o,$(CPP_FILES))
 	@$(CXX) -c -o $@ $< $(CXXFLAGS)
 
 .PHONY: test.output
-test.output: test makefile
+test.output: test
 	@./$<
 
-test: makefile $(OBJ_FILES) $(COMPILED_HPP_FILES)
+test: $(OBJ_FILES) $(COMPILED_HPP_FILES)
 	@$(CXX) $(CXXFLAGS) -O $(OBJ_FILES) -o $@
 
 # don't compile catch.hpp header
